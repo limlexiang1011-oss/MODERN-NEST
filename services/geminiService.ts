@@ -1,3 +1,4 @@
+
 import { GoogleGenAI } from "@google/genai";
 
 const getAiClient = () => {
@@ -24,7 +25,8 @@ export const getDesignAdvice = async (
     If a user asks about products, suggest types of furniture (e.g., "a velvet sectional" or "oak dining table") that fit their vibe.
     Do not mention specific URLs or prices unless explicitly known, just focus on style advice.`;
 
-    const model = 'gemini-2.5-flash';
+    // Updated model to 'gemini-3-flash-preview' for basic text tasks
+    const model = 'gemini-3-flash-preview';
     
     // Construct the chat history for the prompt
     // Ideally we would use ai.chats.create() for a real persistent session, 
@@ -43,6 +45,7 @@ export const getDesignAdvice = async (
     });
 
     const result = await chat.sendMessage({ message: userQuery });
+    // Use .text property directly as per @google/genai guidelines
     return result.text || "I'm pondering that design choice... could you rephrase?";
   } catch (error) {
     console.error("Gemini API Error:", error);

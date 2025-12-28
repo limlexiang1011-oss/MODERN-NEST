@@ -1,9 +1,9 @@
 import React from 'react';
 
 const WhatsAppButton: React.FC = () => {
-  // Use a placeholder number or your actual business WhatsApp number here
-  // Format: CountryCode + Number (e.g., 60123456789 for Malaysia)
-  const phoneNumber = "60123456789"; 
+  // Updated to the user provided business WhatsApp number
+  // Format: CountryCode + Number (60 for Malaysia)
+  const phoneNumber = "60127201315"; 
   const message = "Hi Modern Nest, I'm interested in your furniture collection.";
 
   return (

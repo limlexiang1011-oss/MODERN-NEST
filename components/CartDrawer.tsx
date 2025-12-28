@@ -1,7 +1,6 @@
 import React from 'react';
 import { X, Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import { CartItem } from '../types';
-import { Link } from 'react-router-dom';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -18,7 +17,19 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
   onRemove, 
   onUpdateQuantity 
 }) => {
-  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const handleCheckout = () => {
+    const phoneNumber = "60127201315"; // Match with WhatsAppButton.tsx
+    let orderDetails = "Hi Modern Nest, I'd like to enquire about the following items:\n\n";
+    
+    cart.forEach((item, index) => {
+      orderDetails += `${index + 1}. ${item.name} (Qty: ${item.quantity})\n`;
+    });
+
+    orderDetails += `\nTotal Unique Items: ${cart.length}`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderDetails)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   if (!isOpen) return null;
 
@@ -36,7 +47,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-100">
           <h2 className="text-xl font-serif font-bold text-primary flex items-center gap-2">
-            Shopping Cart
+            My Selection
             <span className="text-sm font-sans font-normal text-secondary">({cart.length} items)</span>
           </h2>
           <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors text-primary">
@@ -44,20 +55,19 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
           </button>
         </div>
 
-        {/* Cart Items */}
+        {/* Items List */}
         <div className="flex-1 overflow-y-auto p-6 space-y-8">
           {cart.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
               <div className="bg-gray-50 p-6 rounded-full">
                 <ShoppingBag size={48} className="text-gray-300" />
               </div>
-              <p className="text-lg font-serif text-primary">Your cart is empty</p>
-              <p className="text-secondary text-sm max-w-xs mx-auto">Looks like you haven't added anything to your cart yet.</p>
+              <p className="text-lg font-serif text-primary">Your list is empty</p>
               <button 
                 onClick={onClose}
                 className="mt-4 border-b border-primary text-primary font-bold hover:text-accent hover:border-accent transition-colors pb-1"
               >
-                Continue Shopping
+                Continue Browsing
               </button>
             </div>
           ) : (
@@ -96,7 +106,6 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
                         <Plus size={14} />
                       </button>
                     </div>
-                    <p className="font-medium text-primary">RM {(item.price * item.quantity).toLocaleString()}</p>
                   </div>
                 </div>
               </div>
@@ -107,13 +116,14 @@ const CartDrawer: React.FC<CartDrawerProps> = ({
         {/* Footer */}
         {cart.length > 0 && (
           <div className="p-6 bg-gray-50 border-t border-gray-100">
-            <div className="flex justify-between items-center mb-4">
-              <span className="text-sm font-medium text-secondary uppercase tracking-wider">Subtotal</span>
-              <span className="text-xl font-serif font-bold text-primary">RM {subtotal.toLocaleString()}</span>
-            </div>
-            <p className="text-xs text-gray-500 mb-6 text-center">Shipping and taxes calculated at checkout.</p>
-            <button className="w-full bg-primary text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-accent transition-colors shadow-lg">
-              Checkout
+            <p className="text-xs text-gray-500 mb-6 text-center">
+              Send your selection to us via WhatsApp for a personalized quotation.
+            </p>
+            <button 
+              onClick={handleCheckout}
+              className="w-full bg-primary text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-accent transition-colors shadow-lg flex items-center justify-center gap-2"
+            >
+              Enquire on WhatsApp
             </button>
           </div>
         )}

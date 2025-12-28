@@ -35,6 +35,7 @@ const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
               <Link to="/" className="hover:text-accent transition-colors">HOME</Link>
               <Link to="/shop" className="hover:text-accent transition-colors">SHOP</Link>
               <Link to="/about" className="hover:text-accent transition-colors">OUR STORY</Link>
+              <Link to="/designers" className="hover:text-accent transition-colors">DESIGNERS</Link>
             </nav>
 
             {/* Icons */}
@@ -85,7 +86,8 @@ const Header: React.FC<HeaderProps> = ({ cartCount, onOpenCart }) => {
               <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
               <Link to="/shop" onClick={() => setIsMenuOpen(false)}>Shop</Link>
               <Link to="/about" onClick={() => setIsMenuOpen(false)}>Our Story</Link>
-              <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              <Link to="/designers" onClick={() => setIsMenuOpen(false)}>Designers</Link>
+              <Link to="/support" onClick={() => setIsMenuOpen(false)}>Contact</Link>
             </nav>
           </div>
         </div>

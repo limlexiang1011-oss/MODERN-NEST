@@ -1,19 +1,19 @@
+
 import { Product } from '../types';
 
 export const ALL_PRODUCTS: Product[] = [
-  // FEATURED
+  // FEATURED / NEW ARRIVALS
   { 
     id: '101', 
     name: 'Oslo Lounge Chair', 
     category: 'Chairs', 
-    price: 599, 
-    image: 'https://i.ibb.co/wZMnnRgr/High-Backed-Reading-Chair-Corner.png', 
+    image: 'https://i.ibb.co/qYy49069/6.png', 
     images: [
-      'https://i.ibb.co/wZMnnRgr/High-Backed-Reading-Chair-Corner.png',
+      'https://i.ibb.co/qYy49069/6.png',
       'https://i.ibb.co/4ZcGbmw2/image.png',
     ],
     isNew: true,
-    description: 'The Oslo Lounge Chair combines the best of Nordic design with exceptional comfort. Crafted from solid white oak and upholstered in a premium wool blend, its organic curves and understated elegance make it a perfect focal point for any modern living space. The wide seat and supportive backrest invite you to relax for hours.',
+    description: 'The Oslo Lounge Chair combines the best of Nordic design with exceptional comfort. Crafted from solid white oak and upholstered in a premium wool blend, its organic curves and understated elegance make it a perfect focal point for any modern living space.',
     dimensions: 'W: 78cm x D: 84cm x H: 76cm',
     material: 'Solid Oak Frame, Wool Blend Fabric, High-density Foam',
     sku: 'OSLO-CH-001'
@@ -22,13 +22,12 @@ export const ALL_PRODUCTS: Product[] = [
     id: '102', 
     name: 'Kyoto Coffee Table', 
     category: 'Tables', 
-    price: 450, 
     image: 'https://i.ibb.co/ksTm0FhG/8.png',
     images: [
       'https://i.ibb.co/ksTm0FhG/8.png',
       'https://i.ibb.co/qFjTsNck/10.png',
     ],
-    description: 'Inspired by traditional Japanese joinery, the Kyoto Coffee Table features a low profile and clean geometric lines. The walnut finish brings warmth and sophistication, while the floating top design adds a sense of airiness to your room. Includes a hidden lower shelf for magazines and remotes.',
+    description: 'Inspired by traditional Japanese joinery, the Kyoto Coffee Table features a low profile and clean geometric lines. The walnut finish brings warmth and sophistication.',
     dimensions: 'W: 120cm x D: 60cm x H: 35cm',
     material: 'Walnut Veneer, Solid Ash Legs',
     sku: 'KYOTO-TBL-002'
@@ -37,13 +36,12 @@ export const ALL_PRODUCTS: Product[] = [
     id: '103', 
     name: 'Havana Velvet Sofa', 
     category: 'Sofas', 
-    price: 1299, 
-    image: 'https://i.ibb.co/3863qVN/Luxury-Living-Room-Option-3.png',
+    image: 'https://i.ibb.co/4RZ0V5Ch/7.png',
     images: [
-      'https://i.ibb.co/3863qVN/Luxury-Living-Room-Option-3.png',
+      'https://i.ibb.co/4RZ0V5Ch/7.png',
       'https://i.ibb.co/99GQRmXh/Luxury-Living-Room-Option-4.png',
     ],
-    description: 'Sink into luxury with the Havana Velvet Sofa. Featuring deep channel tufting and rich, jewel-toned velvet upholstery, this sofa is a statement piece that exudes glamour. The brass-capped legs add a touch of vintage mid-century modern flair.',
+    description: 'Sink into luxury with the Havana Velvet Sofa. Featuring deep channel tufting and rich, jewel-toned velvet upholstery, this sofa is a statement piece that exudes glamour.',
     dimensions: 'W: 220cm x D: 95cm x H: 82cm',
     material: 'Performance Velvet, Kiln-dried Hardwood Frame',
     sku: 'HAVANA-SF-003'
@@ -52,72 +50,82 @@ export const ALL_PRODUCTS: Product[] = [
     id: '104', 
     name: 'Nordic Floor Lamp', 
     category: 'Lighting', 
-    price: 299, 
     image: 'https://i.ibb.co/qFjTsNck/10.png',
     isNew: true,
-    description: 'Illuminate your space with the sleek Nordic Floor Lamp. Its matte black finish and adjustable brass head allow you to direct light exactly where you need it. Perfect for reading nooks or adding ambient lighting to a dark corner.',
+    description: 'Illuminate your space with the sleek Nordic Floor Lamp. Its matte black finish and adjustable brass head allow you to direct light exactly where you need it.',
     dimensions: 'H: 155cm x Base Dia: 28cm',
     material: 'Powder Coated Steel, Brass Details',
     sku: 'NORDIC-LMP-004'
   },
   
-  // BEST SELLERS
-  { 
-    id: '201', 
-    name: 'Eames Style Recliner', 
-    category: 'Chairs', 
-    price: 899, 
-    image: 'https://i.ibb.co/qLYmVJdp/Modern-Dining-Chair-Sales-Poster.png',
-    images: [
-      'https://i.ibb.co/qLYmVJdp/Modern-Dining-Chair-Sales-Poster.png',
-      'https://i.ibb.co/wZMnnRgr/High-Backed-Reading-Chair-Corner.png'
-    ],
-    description: 'An homage to iconic mid-century design, this recliner offers unparalleled comfort. Upholstered in genuine top-grain leather with a molded plywood shell, it comes complete with a matching ottoman for the ultimate relaxation experience.',
-    dimensions: 'W: 84cm x D: 85cm x H: 84cm',
-    material: 'Top-grain Leather, Plywood, Aluminum Base',
-    sku: 'ES-REC-201'
-  },
-  { 
-    id: '202', 
-    name: 'Minimalist Bookshelf', 
-    category: 'Storage', 
-    price: 650, 
-    image: 'https://i.ibb.co/4RZ0V5Ch/7.png',
-    description: 'Showcase your library and collectibles with this airy, open-back bookshelf. The asymmetrical shelf heights allow for versatile display options, from tall vases to stacks of art books. Sturdy metal frame with oak shelves.',
-    dimensions: 'W: 100cm x D: 30cm x H: 180cm',
-    material: 'Black Metal Frame, Oak Veneer Shelves',
-    sku: 'MIN-BK-202'
-  },
-  { 
-    id: '203', 
-    name: 'Ceramic Vase Set', 
-    category: 'Decor', 
-    price: 120, 
-    image: 'https://i.ibb.co/qYy49069/6.png',
-    images: [
-        'https://i.ibb.co/qYy49069/6.png',
-        'https://i.ibb.co/ksTm0FhG/8.png'
-    ],
-    description: 'A trio of handcrafted ceramic vases in varying organic shapes and earthy tones. These sculptural pieces look stunning on their own or filled with dried botanicals. Each piece is unique due to the reactive glaze finish.',
-    dimensions: 'Various Heights: 15cm, 22cm, 30cm',
-    material: 'Stoneware Ceramic',
-    sku: 'CER-VS-203'
-  },
+  // ADDITIONAL PRODUCTS
   { 
     id: '204', 
     name: 'Wool Area Rug', 
     category: 'Rugs', 
-    price: 350, 
     image: 'https://i.ibb.co/VWPJbB5M/9.png',
-    description: 'Hand-tufted from 100% New Zealand wool, this area rug features a subtle high-low geometric pattern that adds texture without overwhelming your space. Soft underfoot and naturally stain-resistant.',
+    description: 'Hand-tufted from 100% New Zealand wool, featuring a subtle high-low geometric pattern for added texture.',
     dimensions: '200cm x 300cm',
     material: '100% New Zealand Wool, Cotton Backing',
     sku: 'WOOL-RG-204'
   },
+
+  // NEW ADDITIONS FROM USER
+  { 
+    id: '301', 
+    name: 'NOVA Lounge Chair', 
+    category: 'Lounge chair', 
+    image: 'https://i.ibb.co/jk4NhH1d/5.png',
+    isNew: true,
+    description: 'The NOVA features a sweeping silhouette and deep-set seating, perfect for contemporary relaxation spaces.',
+    dimensions: 'W: 75cm x D: 80cm x H: 72cm',
+    material: 'Curved Ash Wood, Premium Linen',
+    sku: 'NOVA-LC-301'
+  },
+  { 
+    id: '302', 
+    name: 'HAVEN Lounge Chair', 
+    category: 'Lounge chair', 
+    image: 'https://i.ibb.co/B202p1Xb/6.png',
+    description: 'Designed as a personal retreat, the HAVEN offers an enveloping backrest and soft, textured upholstery.',
+    dimensions: 'W: 82cm x D: 88cm x H: 78cm',
+    material: 'Walnut Finish, Bouclé Fabric',
+    sku: 'HAVEN-LC-302'
+  },
+  { 
+    id: '303', 
+    name: 'AXIS Dining Chair', 
+    category: 'Dining chair', 
+    image: 'https://i.ibb.co/LX8Hx1Fq/7.png',
+    description: 'A study in geometric balance, the AXIS Dining Chair provides ergonomic support with a striking structural profile.',
+    dimensions: 'W: 48cm x D: 52cm x H: 85cm',
+    material: 'Powder-coated Steel, Molded Plywood',
+    sku: 'AXIS-DC-303'
+  },
+  { 
+    id: '304', 
+    name: 'EMBER Dining Chair', 
+    category: 'Dining chair', 
+    image: 'https://i.ibb.co/DPyhQBxK/8.png',
+    isNew: true,
+    description: 'Warm and inviting, the EMBER combines traditional woodworking with a modern, slimline aesthetic.',
+    dimensions: 'W: 50cm x D: 55cm x H: 82cm',
+    material: 'Solid Cherry Wood, Leather Seat Cushion',
+    sku: 'EMBER-DC-304'
+  },
+  { 
+    id: '305', 
+    name: 'VERA Dining Chair', 
+    category: 'Dining chair', 
+    image: 'https://i.ibb.co/TxWhBchV/9.png',
+    description: 'Elegant and understated, the VERA features a curved backrest that seamlessly flows into its supportive legs.',
+    dimensions: 'W: 52cm x D: 54cm x H: 80cm',
+    material: 'Oak Wood, Performance Fabric',
+    sku: 'VERA-DC-305'
+  }
 ];
 
 export const FEATURED_PRODUCTS = ALL_PRODUCTS.filter(p => ['101', '102', '103', '104'].includes(p.id));
-export const BEST_SELLERS = ALL_PRODUCTS.filter(p => ['201', '202', '203', '204'].includes(p.id));
 
 export const getProductById = (id: string): Product | undefined => {
   return ALL_PRODUCTS.find(p => p.id === id);

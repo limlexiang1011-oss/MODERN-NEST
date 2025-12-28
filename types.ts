@@ -1,8 +1,8 @@
+
 export interface Product {
   id: string;
   name: string;
   category: string;
-  price: number;
   image: string;
   images?: string[]; // Array of additional images for the gallery
   isNew?: boolean;

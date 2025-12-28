@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '../types';
@@ -26,12 +27,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
           <button
             onClick={(e) => {
-              e.preventDefault(); // Prevent navigating if wrapped in Link (though button is on top)
+              e.preventDefault();
               onAddToCart(product);
             }}
             className="w-full bg-primary text-white py-3 text-sm font-bold uppercase tracking-wider hover:bg-accent transition-colors shadow-lg pointer-events-auto"
           >
-            Add to Cart
+            Add to Enquiry
           </button>
         </div>
       </div>
@@ -42,7 +43,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
             {product.name}
           </h3>
         </Link>
-        <p className="text-primary font-medium">RM {product.price.toLocaleString()}</p>
       </div>
     </div>
   );

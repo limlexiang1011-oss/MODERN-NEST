@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Minus, Plus, Star, Truck, Shield, ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
@@ -46,7 +47,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
   };
 
   const handleAddToCart = () => {
-    // In a real app, we would pass quantity to addToCart
     for(let i=0; i<quantity; i++) {
         onAddToCart(product);
     }
@@ -73,7 +73,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* Breadcrumbs */}
       <nav className="text-xs text-gray-500 mb-8 flex items-center space-x-2">
         <Link to="/" className="hover:text-primary">Home</Link>
         <span>/</span>
@@ -83,7 +82,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20">
-        {/* Left Column - Images */}
         <div className="space-y-4">
           <div className="aspect-square bg-gray-100 overflow-hidden">
             <img src={activeImage} alt={product.name} className="w-full h-full object-cover" />
@@ -101,12 +99,10 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
           </div>
         </div>
 
-        {/* Right Column - Product Info */}
         <div className="flex flex-col">
-          <h1 className="text-3xl md:text-4xl font-serif font-medium text-primary mb-2">{product.name}</h1>
+          <h1 className="text-3xl md:text-4xl font-serif font-medium text-primary mb-4">{product.name}</h1>
           
           <div className="flex items-center space-x-4 mb-6">
-            <span className="text-xl text-secondary">RM {product.price.toLocaleString()}</span>
             <div className="flex text-yellow-500">
               {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
               <span className="text-gray-400 text-xs ml-2">(24 reviews)</span>
@@ -141,11 +137,10 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
               onClick={handleAddToCart}
               className="w-full bg-primary text-white py-4 text-sm font-bold uppercase tracking-widest hover:bg-accent transition-colors shadow-sm"
             >
-              Add to Cart - RM {(product.price * quantity).toLocaleString()}
+              Add to Enquiry
             </button>
           </div>
 
-          {/* Features / Benefits */}
           <div className="grid grid-cols-2 gap-4 mb-8 text-xs text-secondary">
              <div className="flex items-center space-x-2">
                 <Truck size={18} />
@@ -157,7 +152,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
              </div>
           </div>
 
-          {/* Accordions */}
           <div className="border-t border-gray-200">
             <AccordionItem title="Dimensions" id="dimensions">
               {product.dimensions || "See product images for detailed dimensions."}
@@ -175,7 +169,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onAddToCart }) =>
         </div>
       </div>
 
-      {/* Related Products */}
       {relatedProducts.length > 0 && (
         <section className="border-t border-gray-200 pt-16">
           <h3 className="text-2xl font-serif text-primary mb-8 text-center">You Might Also Like</h3>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { HashRouter, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
@@ -9,14 +10,18 @@ import ProductDetailPage from './components/ProductDetailPage';
 import WhatsAppButton from './components/WhatsAppButton';
 import CartDrawer from './components/CartDrawer';
 import SupportPage from './components/SupportPage';
+import DesignerSection from './components/DesignerSection';
 import { Product, CartItem } from './types';
-import { FEATURED_PRODUCTS, BEST_SELLERS, ALL_PRODUCTS } from './data/products';
+import { FEATURED_PRODUCTS, ALL_PRODUCTS } from './data/products';
 
 const HomePage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ onAddToCart }) => (
   <main className="flex-grow">
     <Hero />
     
     <CategoryGrid />
+
+    {/* Designer Section moved higher for better visibility */}
+    <DesignerSection />
 
     <section className="py-20 px-4 max-w-7xl mx-auto">
       <div className="flex justify-between items-end mb-10">
@@ -33,14 +38,8 @@ const HomePage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ onAddToCart
           <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
         ))}
       </div>
-      <div className="mt-10 text-center md:hidden">
-         <Link to="/shop" className="inline-block border border-primary px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
-            View All
-          </Link>
-      </div>
     </section>
 
-    {/* Brand Story Section - Similar to Ruma's "About" snippet */}
     <section className="bg-offwhite py-24">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="order-2 md:order-1">
@@ -57,18 +56,6 @@ const HomePage: React.FC<{ onAddToCart: (p: Product) => void }> = ({ onAddToCart
             Read Our Story
           </Link>
         </div>
-      </div>
-    </section>
-
-    <section className="py-20 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12">
-        <h3 className="text-3xl font-serif text-primary mb-2">Best Sellers</h3>
-        <p className="text-secondary">Our most loved pieces.</p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-        {BEST_SELLERS.map(product => (
-          <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
-        ))}
       </div>
     </section>
   </main>
@@ -126,6 +113,40 @@ const App: React.FC = () => {
           <Route path="/product/:id" element={<ProductDetailPage onAddToCart={addToCart} />} />
           <Route path="/collections" element={<ShopPage onAddToCart={addToCart} />} />
           <Route path="/support" element={<SupportPage />} />
+          <Route path="/designers" element={
+            <div className="max-w-5xl mx-auto px-4 py-20">
+              <div className="text-center mb-16">
+                 <h1 className="text-5xl font-serif text-primary mb-4 tracking-tight">Italian Excellence</h1>
+                 <p className="text-accent uppercase tracking-[0.4em] text-sm font-bold">The Design Collective</p>
+                 <div className="w-24 h-px bg-accent mx-auto mt-8"></div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center mb-32">
+                 <div className="aspect-[3/4] overflow-hidden shadow-2xl">
+                    <img src="https://i.ibb.co/xSXvzfmN/AI-sales-Post-2.png" alt="Luca Santini" className="w-full h-full object-cover" />
+                 </div>
+                 <div className="space-y-8">
+                    <h2 className="text-4xl font-serif">Luca Santini</h2>
+                    <p className="text-secondary leading-relaxed text-lg">
+                      Luca Santini is a Milan-based industrial designer whose work for Modern Nest focuses on the "tactile harmony" of materials. With over 20 years of experience designing for high-end Italian brands, he brings an uncompromising standard of quality to every sketch.
+                    </p>
+                    <p className="text-secondary leading-relaxed text-lg">
+                      His signature style—Rational Minimalism—emphasizes the beauty of exposed joints and the natural grain of premium timbers.
+                    </p>
+                    <div className="bg-offwhite p-8 border border-gray-100 italic font-serif text-xl">
+                      "I don't design objects. I design the light and space that surrounds them."
+                    </div>
+                 </div>
+              </div>
+
+              <div className="bg-primary text-white p-12 md:p-20 text-center space-y-6">
+                 <h3 className="text-3xl font-serif">A Global Vision</h3>
+                 <p className="max-w-2xl mx-auto text-gray-400 text-lg">
+                   While our roots are Italian, our production partners are selected from the finest workshops in Malaysia and beyond, ensuring that world-class design remains accessible without compromising on ethics or quality.
+                 </p>
+              </div>
+            </div>
+          } />
           <Route path="/about" element={
             <div className="max-w-3xl mx-auto px-4 py-20">
               <div className="text-center mb-12">
@@ -149,7 +170,6 @@ const App: React.FC = () => {
               </div>
             </div>
           } />
-          {/* Fallback route */}
           <Route path="*" element={<HomePage onAddToCart={addToCart} />} />
         </Routes>
 
